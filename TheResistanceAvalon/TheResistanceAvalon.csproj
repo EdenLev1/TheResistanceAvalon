@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ceremony.cs" />
+    <Compile Include="comm.cs" />
     <Compile Include="GameCreation.cs" />
     <Compile Include="Lobby.cs" />
     <Compile Include="MainActivity.cs" />
