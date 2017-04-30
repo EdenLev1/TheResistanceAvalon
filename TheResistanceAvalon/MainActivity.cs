@@ -56,63 +56,80 @@ namespace TheResistanceAvalon
                 if (nickname != null)
                 {
 
-                    // general HTTP connection details:
+                  
 
-                    var client = new RestClient();
-                    client.BaseUrl = new Uri("http://208.113.133.116:5000");
 
-                    var POSTrequest = new RestRequest("Players/", Method.POST);
-                    POSTrequest.RequestFormat = DataFormat.Json;
-                    var newPlayer = new player
-                    {
-                        name = nickname,
-                    };
-                    //insert this json doc into the Games collections:
-
-                    POSTrequest.AddHeader("Content-Type", "application/json; charset=utf-8");
-                    POSTrequest.AddBody(newPlayer);
-                    IRestResponse POSTresponse = client.Execute(POSTrequest);
-
-                   // Intent Lobbyintent = new Intent(this, typeof(Lobby));
-                    //StartActivity(Lobbyintent);
+                   //Intent Lobbyintent = new Intent(this, typeof(Lobby));
+                   //StartActivity(Lobbyintent);
 
                 }
 
             };
-            // general connection details:
+     
+            //GET a JSON document back from a collection in the DB
 
-            //var client = new RestClient();
-            //client.BaseUrl = new Uri("http://208.113.133.116:5000");
+            // coll get1 = c.GET("Boards", "test_coll");
+            //this option below will print all the Board json document with all the data and statused etc:
+            // string json = JsonConvert.SerializeObject(get1);
+            //Console.WriteLine(json);
+            //this can get more details parameters from the json document:
+            //Console.WriteLine(get1.players_role.player2);
+            //Console.WriteLine(get1.status);
 
-            // GET to HTTP REST-API - get document from specific mongo collection:
+            //coll get2 = c.GET("Players", "eden");
+            //string json2 = JsonConvert.SerializeObject(get2);
+            //print all eden player:
+            //Console.WriteLine(json2);
+            //or just some specific details:
+            //Console.WriteLine(get2.location);
+            //Console.WriteLine(get2.active_game);
 
-            //var GETrequest = new RestRequest(Method.GET);
-            //GETrequest.Resource = "/Games";
-            //IRestResponse GETresponse = client.Execute(GETrequest);
-            //Console.WriteLine(GETresponse.Content);
+            //coll get3 = c.GET("Missions", "game1m1");
+            //Console.WriteLine(get3.leader);
+            //Console.WriteLine(get3.team_count);
+            //Console.WriteLine(get3.team[1]);
+            //or even :   Console.WriteLine(string.Join(",", get3.team.ToArray()));
 
-            // wait for user to input something to continue to next steps:
-            //Console.ReadLine();
+            //Console.Read();
 
-            // POST to HTTP REST-API - set document on specific mongo collection:
 
-            //var POSTrequest = new RestRequest(Method.POST);
-            //POSTrequest.Resource = "/Players";
-            //POSTrequest.RequestFormat = DataFormat.Json;
-            //var newGame = new Game
-            //{
-            //    name = "NEWGameName",
-            //    active = true,
-            //    status = "finished",
-            //    board_players = 5,
-            //    winners = "good"
-            // etc...
-            //};
-            //var json = POSTrequest.JsonSerializer.Serialize(newGame);
-            //POSTrequest.AddParameter("application/json; charset=utf-8", json, ParameterType.RequestBody);
-            //IRestResponse POSTresponse = client.Execute(POSTrequest);
-            //Console.WriteLine(POSTresponse.Content);   //just show the results if 'OK' or some 'error' from the REST-API server
-            //Console.ReadLine();
+            //// GET a string back from DB that match query from "collection", where "key" = "value"
+
+            //string getf = c.GETF("Players", "\"quests.m1q\"", "false");
+            //Console.WriteLine(getf);
+            //Console.Read();
+            //Console.Read();
+
+            //POST a JSON document data to a collection in the DB
+
+            //coll data = new coll();
+            //data.name = "stamTESTgame";
+            //data.status = "login";
+            //data.players = new List<string> { "Arthur", "Betty", "koren", "yakov" };
+            //data.variant = new Variant { mordred = true, lady = true, morgana = true, percival = true, excalibur = false };
+            //data.game_password = "new-password";
+            //string post = c.POST("Games", data);
+            //Console.WriteLine(post);
+            //Console.Read();
+            //Console.Read();
+
+            //DELETE a document from a collection in the DB
+
+            //string del = c.DELETE("Games", "stamTESTgame");
+            //Console.WriteLine(del);
+            //Console.Read();
+            //Console.Read();
+
+            //UPDATE(PATCH) a document in a collection in the DB
+
+            //coll update = new coll();
+            //update.status = "game";
+            //update.players = new List<string> { "me", "update", "Arthur", "Betty", "koren", "yakov" };
+            //update.variant = new Variant { mordred = true, lady = true, morgana = true, percival = true, excalibur = true };
+            //string patch = c.PATCH("Games", "demo-game", update);
+            //Console.WriteLine(patch);
+            //Console.Read();
+            //Console.Read();
         }
     }
 }
