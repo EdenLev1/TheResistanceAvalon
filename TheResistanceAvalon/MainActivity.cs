@@ -6,7 +6,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using RestSharp;
-//test
+
 namespace TheResistanceAvalon
 {
 
