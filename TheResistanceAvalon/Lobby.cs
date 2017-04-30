@@ -18,7 +18,7 @@ namespace TheResistanceAvalon
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-                
+            SetContentView(Resource.Layout.LobbyLayout);
             Button CreateGame = FindViewById<Button>(Resource.Id.Create);
             Button JoinGame = FindViewById<Button>(Resource.Id.Join);
             CreateGame.Click += (object sender, EventArgs e) =>

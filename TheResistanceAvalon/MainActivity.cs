@@ -63,7 +63,6 @@ namespace TheResistanceAvalon
                     comm c = new comm();
                     coll data = new coll();
                     data.name = nickname;
-                    data.status = "login";
                     data.password = passW;
                     string post = c.POST("Players", data);
                     Intent Lobbyintent = new Intent(this, typeof(Lobby));
