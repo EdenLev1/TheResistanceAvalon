@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:text="Please enter a nickname"
+        android:text="Please enter a nickname and password"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,9 +14,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/nickname"
         android:text="Nick Name" />
+    <EditText
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/_pass"
+        android:text="Password" />
     <Button
         android:text="Enter Lobby"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Enter" />
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/errors" />
 </LinearLayout>

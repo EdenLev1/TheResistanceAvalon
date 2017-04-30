@@ -6,6 +6,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using RestSharp;
+using System.Collections.Generic;
 
 namespace TheResistanceAvalon
 {
@@ -42,25 +43,31 @@ namespace TheResistanceAvalon
             SetContentView(Resource.Layout.Main);
             // Get our UI controls from the loaded layout:
             EditText NickName = FindViewById<EditText>(Resource.Id.nickname);
+            EditText pass = FindViewById<EditText>(Resource.Id._pass);
+            TextView error = FindViewById<TextView>(Resource.Id.errors);
             Button Enter = FindViewById<Button>(Resource.Id.Enter);
             // Add code to translate number
-            string nickname = string.Empty;
+            string nickname,passW,errorM;
             Enter.Click += (object sender, EventArgs e) =>
             {
                 nickname = NickName.Text;
-                if (nickname == null)
+                passW = pass.Text;
+                if (nickname == null ||passW==null)
                 {
-                    nickname = "default1";
+                    errorM = "Invalid inputs please try again";
+                    error.Text = errorM;
                 }
 
-                if (nickname != null)
+                else
                 {
-
-                  
-
-
-                   //Intent Lobbyintent = new Intent(this, typeof(Lobby));
-                   //StartActivity(Lobbyintent);
+                    comm c = new comm();
+                    coll data = new coll();
+                    data.name = nickname;
+                    data.status = "login";
+                    data.password = passW;
+                    string post = c.POST("Players", data);
+                    Intent Lobbyintent = new Intent(this, typeof(Lobby));
+                    StartActivity(Lobbyintent);
 
                 }
 
