@@ -11,29 +11,10 @@ using System.Collections.Generic;
 namespace TheResistanceAvalon
 {
 
-    public class Game
-    {
-        public string name { get; set; }
-        public Boolean active { get; set; }
-        public string status { get; set; }
-        public int board_players { get; set; }
-        public string winners { get; set; }
-        public string password { get; set; }
-        public int numPlayers { get; set; }
-        // etc...etc ....put all the scheme from games in mongoDB !!
-    }
-    public class player
-    {
-        public string name { get; set; }
-        // public string role { get; set; }
-        //public string member { get; set; }
-        //public bool online { get; set; }
-        //public string game { get; set; }
-        // etc...etc ....put all the scheme from players in mongoDB
-    }
     [Activity(Label = "AvalonApp", MainLauncher = true, Icon = "@drawable/Untitled")]
     public class MainActivity : Activity
     {
+        public static string playername = "";
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -64,11 +45,13 @@ namespace TheResistanceAvalon
                     error.Text = "username already exists, please choose a different one or enter a correct password for that username";
                 else if(c.GETF("Players", "\"name\"", nickname).Contains("total=0") && c.GET("Players", nickname).password != passW)
                 {
+                    playername = nickname;
                     Intent Lobbyintent = new Intent(this, typeof(Lobby));
                     StartActivity(Lobbyintent);
                 }
                 else
                 {
+                    playername = nickname;
                     coll data = new coll();
                     data.name = nickname;
                     data.password = passW;
@@ -77,72 +60,75 @@ namespace TheResistanceAvalon
                     StartActivity(Lobbyintent);
                 }
             };
-     
-            //GET a JSON document back from a collection in the DB
+          
 
-            // coll get1 = c.GET("Boards", "test_coll");
-            //this option below will print all the Board json document with all the data and statused etc:
-            // string json = JsonConvert.SerializeObject(get1);
-            //Console.WriteLine(json);
-            //this can get more details parameters from the json document:
-            //Console.WriteLine(get1.players_role.player2);
-            //Console.WriteLine(get1.status);
+         }
 
-            //coll get2 = c.GET("Players", "eden");
-            //string json2 = JsonConvert.SerializeObject(get2);
-            //print all eden player:
-            //Console.WriteLine(json2);
-            //or just some specific details:
-            //Console.WriteLine(get2.location);
-            //Console.WriteLine(get2.active_game);
+        //GET a JSON document back from a collection in the DB
 
-            //coll get3 = c.GET("Missions", "game1m1");
-            //Console.WriteLine(get3.leader);
-            //Console.WriteLine(get3.team_count);
-            //Console.WriteLine(get3.team[1]);
-            //or even :   Console.WriteLine(string.Join(",", get3.team.ToArray()));
+        // coll get1 = c.GET("Boards", "test_coll");
+        //this option below will print all the Board json document with all the data and statused etc:
+        // string json = JsonConvert.SerializeObject(get1);
+        //Console.WriteLine(json);
+        //this can get more details parameters from the json document:
+        //Console.WriteLine(get1.players_role.player2);
+        //Console.WriteLine(get1.status);
 
-            //Console.Read();
+        //coll get2 = c.GET("Players", "eden");
+        //string json2 = JsonConvert.SerializeObject(get2);
+        //print all eden player:
+        //Console.WriteLine(json2);
+        //or just some specific details:
+        //Console.WriteLine(get2.location);
+        //Console.WriteLine(get2.active_game);
+
+        //coll get3 = c.GET("Missions", "game1m1");
+        //Console.WriteLine(get3.leader);
+        //Console.WriteLine(get3.team_count);
+        //Console.WriteLine(get3.team[1]);
+        //or even :   Console.WriteLine(string.Join(",", get3.team.ToArray()));
+
+        //Console.Read();
 
 
-            //// GET a string back from DB that match query from "collection", where "key" = "value"
+        //// GET a string back from DB that match query from "collection", where "key" = "value"
 
-            //string getf = c.GETF("Players", "\"quests.m1q\"", "false");
-            //Console.WriteLine(getf);
-            //Console.Read();
-            //Console.Read();
+        //string getf = c.GETF("Players", "\"quests.m1q\"", "false");
+        //Console.WriteLine(getf);
+        //Console.Read();
+        //Console.Read();
 
-            //POST a JSON document data to a collection in the DB
+        //POST a JSON document data to a collection in the DB
 
-            //coll data = new coll();
-            //data.name = "stamTESTgame";
-            //data.status = "login";
-            //data.players = new List<string> { "Arthur", "Betty", "koren", "yakov" };
-            //data.variant = new Variant { mordred = true, lady = true, morgana = true, percival = true, excalibur = false };
-            //data.game_password = "new-password";
-            //string post = c.POST("Games", data);
-            //Console.WriteLine(post);
-            //Console.Read();
-            //Console.Read();
+        //coll data = new coll();
+        //data.name = "stamTESTgame";
+        //data.status = "login";
+        //data.players = new List<string> { "Arthur", "Betty", "koren", "yakov" };
+        //data.variant = new Variant { mordred = true, lady = true, morgana = true, percival = true, excalibur = false };
+        //data.game_password = "new-password";
+        //string post = c.POST("Games", data);
+        //Console.WriteLine(post);
+        //Console.Read();
+        //Console.Read();
 
-            //DELETE a document from a collection in the DB
+        //DELETE a document from a collection in the DB
 
-            //string del = c.DELETE("Games", "stamTESTgame");
-            //Console.WriteLine(del);
-            //Console.Read();
-            //Console.Read();
+        //string del = c.DELETE("Games", "stamTESTgame");
+        //Console.WriteLine(del);
+        //Console.Read();
+        //Console.Read();
 
-            //UPDATE(PATCH) a document in a collection in the DB
+        //UPDATE(PATCH) a document in a collection in the DB
 
-            //coll update = new coll();
-            //update.status = "game";
-            //update.players = new List<string> { "me", "update", "Arthur", "Betty", "koren", "yakov" };
-            //update.variant = new Variant { mordred = true, lady = true, morgana = true, percival = true, excalibur = true };
-            //string patch = c.PATCH("Games", "demo-game", update);
-            //Console.WriteLine(patch);
-            //Console.Read();
-            //Console.Read();
-        }
+        //coll update = new coll();
+        //update.status = "game";
+        //update.players = new List<string> { "me", "update", "Arthur", "Betty", "koren", "yakov" };
+        //update.variant = new Variant { mordred = true, lady = true, morgana = true, percival = true, excalibur = true };
+        //string patch = c.PATCH("Games", "demo-game", update);
+        //Console.WriteLine(patch);
+        //Console.Read();
+        //Console.Read();
+    }
     }
 }
 
