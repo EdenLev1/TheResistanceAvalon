@@ -50,26 +50,32 @@ namespace TheResistanceAvalon
             string nickname,passW,errorM;
             Enter.Click += (object sender, EventArgs e) =>
             {
+                comm c = new comm();
                 nickname = NickName.Text;
                 passW = pass.Text;
                 if (nickname == null ||passW==null)
                 {
-                    errorM = "Invalid inputs please try again";
+                    errorM = "Invalid inputs please try again, password or username can not be empty";
                     error.Text = errorM;
-                }
 
+                }
+                
+                else if (!c.GETF("Players", "\"name\"", nickname).Contains("total=0") && c.GET("Players", nickname).password!=passW)
+                    error.Text = "username already exists, please choose a different one or enter a correct password for that username";
+                else if(c.GETF("Players", "\"name\"", nickname).Contains("total=0") && c.GET("Players", nickname).password != passW)
+                {
+                    Intent Lobbyintent = new Intent(this, typeof(Lobby));
+                    StartActivity(Lobbyintent);
+                }
                 else
                 {
-                    comm c = new comm();
                     coll data = new coll();
                     data.name = nickname;
                     data.password = passW;
                     string post = c.POST("Players", data);
                     Intent Lobbyintent = new Intent(this, typeof(Lobby));
                     StartActivity(Lobbyintent);
-
                 }
-
             };
      
             //GET a JSON document back from a collection in the DB

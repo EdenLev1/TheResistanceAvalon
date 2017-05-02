@@ -28,8 +28,8 @@ namespace TheResistanceAvalon
             };
             JoinGame.Click += (object sender, EventArgs e) =>
             {
-                Intent Join = new Intent(this, typeof(GameCreation));
-                StartActivity(Join);
+              //  Intent Join = new Intent(this, typeof(GameCreation));
+               // StartActivity(Join);
             };
 
         }
