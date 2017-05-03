@@ -34,16 +34,16 @@ namespace TheResistanceAvalon
                 comm c = new comm();
                 nickname = NickName.Text;
                 passW = pass.Text;
-                if (nickname == null ||passW==null)
+                if (nickname == "" ||passW=="")
                 {
                     errorM = "Invalid inputs please try again, password or username can not be empty";
                     error.Text = errorM;
 
                 }
-                
-                else if (!c.GETF("Players", "\"name\"", nickname).Contains("total=0") && c.GET("Players", nickname).password!=passW)
+
+                if ((c.GET("Players", nickname).password) != null && c.GET("Players", nickname).password != passW)
                     error.Text = "username already exists, please choose a different one or enter a correct password for that username";
-                else if(c.GETF("Players", "\"name\"", nickname).Contains("total=0") && c.GET("Players", nickname).password != passW)
+                if ((c.GET("Players", nickname).password) != null && c.GET("Players", nickname).password != passW)
                 {
                     playername = nickname;
                     Intent Lobbyintent = new Intent(this, typeof(Lobby));
@@ -130,5 +130,5 @@ namespace TheResistanceAvalon
         //Console.Read();
     }
     }
-}
+
 

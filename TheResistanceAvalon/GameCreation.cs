@@ -15,8 +15,8 @@ namespace TheResistanceAvalon
         public string gamename = "";
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            SetContentView(Resource.Layout.LobbyLayout);
-            Button CreateTable = FindViewById<Button>(Resource.Id.Join);
+            SetContentView(Resource.Layout.CreateGame);
+            Button CreateTable = FindViewById<Button>(Resource.Id.CreateTable);
             EditText TableName = FindViewById<EditText>(Resource.Id.TName);
             EditText TablePass = FindViewById<EditText>(Resource.Id._password);
             TextView errors = FindViewById<TextView>(Resource.Id.errors);
@@ -39,7 +39,7 @@ namespace TheResistanceAvalon
                     coll data = new coll();
                     if (!c.GETF("Games", "\"name\"", tn).Contains("total=0"))
                         errors.Text = "game name already exists please use a different one";
-                    
+
                     else
                     {
                         data.name = tn;
@@ -54,6 +54,7 @@ namespace TheResistanceAvalon
                         StartActivity(Lobbyintent);
                     }
                 }
+                else errors.Text = "wrong inputs, please follow the instructions";
             };
 
             }}

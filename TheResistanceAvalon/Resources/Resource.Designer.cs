@@ -72,6 +72,9 @@ namespace TheResistanceAvalon
 			// aapt resource value: 0x7f05000b
 			public const int Create = 2131034123;
 			
+			// aapt resource value: 0x7f05000a
+			public const int CreateTable = 2131034122;
+			
 			// aapt resource value: 0x7f05000f
 			public const int Enter = 2131034127;
 			
@@ -105,14 +108,14 @@ namespace TheResistanceAvalon
 			// aapt resource value: 0x7f050010
 			public const int absoluteLayout1 = 2131034128;
 			
-			// aapt resource value: 0x7f05000a
-			public const int button1 = 2131034122;
-			
 			// aapt resource value: 0x7f050018
-			public const int button2 = 2131034136;
+			public const int button1 = 2131034136;
 			
 			// aapt resource value: 0x7f050019
-			public const int button3 = 2131034137;
+			public const int button2 = 2131034137;
+			
+			// aapt resource value: 0x7f05001a
+			public const int button3 = 2131034138;
 			
 			// aapt resource value: 0x7f050008
 			public const int errors = 2131034120;
@@ -141,8 +144,8 @@ namespace TheResistanceAvalon
 			// aapt resource value: 0x7f050007
 			public const int textView5 = 2131034119;
 			
-			// aapt resource value: 0x7f05001a
-			public const int textView6 = 2131034138;
+			// aapt resource value: 0x7f05001b
+			public const int textView6 = 2131034139;
 			
 			static Id()
 			{
