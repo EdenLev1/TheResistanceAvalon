@@ -73,7 +73,7 @@ namespace TheResistanceAvalon
             {
                 if (players[i].GetKind() == "evil" || players[i].GetKind() == "assassin" || players[i].GetKind() == "mordred")
                 {
-                    evils += players[i].GetplayerName() + "is evil ,";
+                    evils += players[i].GetplayerName() + " is evil ,";
                 }
             }
             return evils;
