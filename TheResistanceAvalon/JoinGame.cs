@@ -38,25 +38,30 @@ namespace TheResistanceAvalon
                     else
                     {
 
-                        if (c.GET("Games", tn).game_password == p && c.GET("Games", tn).players.Count < c.GET("Games", tn).NumberOfPlayers)
+                        if (c.GET("Games", tn).game_password == p)
                         {
-                            if(c.GET("Games", tn).players.Contains(GlobalVariables.playername))
-                            {
-                                GlobalVariables.Gamename = tn;
-                                Intent ci = new Intent(this, typeof(Ceremony));
-                                StartActivity(ci);
+
+                                if(c.GET("Games", tn).players.Contains(GlobalVariables.playername))
+                                {
+                                    GlobalVariables.Gamename = tn;
+                                    Intent ci = new Intent(this, typeof(Ceremony));
+                                    StartActivity(ci);
+                                }
+                                else if(c.GET("Games", tn).players.Count < c.GET("Games", tn).NumberOfPlayers)
+                                {
+                                    GlobalVariables.Gamename = tn;
+                                    List<string> pl = c.GET("Games", tn).players;
+                                    pl.Add(GlobalVariables.playername);
+                                    update.players = pl;
+                                    c.PATCH("Games", tn, update);
+                                    coll d2 = new coll();
+                                    d2.active_game = tn;
+                                    c.PATCH("Players", GlobalVariables.playername, d2);
+                                    Intent CeremonyIntent = new Intent(this, typeof(Ceremony));
+                                    StartActivity(CeremonyIntent);
+                                }
                             }
-                            else
-                            {
-                                GlobalVariables.Gamename = tn;
-                                List<string> pl = c.GET("Games", tn).players;
-                                pl.Add(GlobalVariables.playername);
-                                update.players = pl;
-                                c.PATCH("Games", tn, update);
-                                Intent CeremonyIntent = new Intent(this, typeof(Ceremony));
-                                StartActivity(CeremonyIntent);
-                            }
-                        }
+                        
                         else errors.Text = "table is either full or you have entered the wrong password";
                         //update.players = new List<string> { "me", "update", "Arthur", "Betty", "koren", "yakov" };
                         //update.variant = new Variant { mordred = true, lady = true, morgana = true, percival = true, excalibur = true };

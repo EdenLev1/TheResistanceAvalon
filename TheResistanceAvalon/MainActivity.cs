@@ -43,15 +43,15 @@ namespace TheResistanceAvalon
 
                 if ((c.GET("Players", nickname).password) != null && c.GET("Players", nickname).password != passW)
                     error.Text = "username already exists, please choose a different one or enter a correct password for that username";
-                if ((c.GET("Players", nickname).password) != null && c.GET("Players", nickname).password != passW)
+                if ((c.GET("Players", nickname).password) != null && c.GET("Players", nickname).password == passW)
                 {
-                    playername = nickname;
+                    GlobalVariables.playername = nickname;
                     Intent Lobbyintent = new Intent(this, typeof(Lobby));
                     StartActivity(Lobbyintent);
                 }
                 else
                 {
-                    playername = nickname;
+                    GlobalVariables.playername = nickname;
                     coll data = new coll();
                     data.name = nickname;
                     data.password = passW;

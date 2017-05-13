@@ -3,5 +3,45 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <TextView
+        android:text="Status: waiting for there to be enough players"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/status" />
+    <TextView
+        android:text="Your info:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/info" />
+    <Button
+        android:text="Got it! Let's play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Move"
+        android:enabled="false" />
+    <Button
+        android:text="Begin Ceremony"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cere"
+        android:enabled="false" />
+    <TextView
+        android:text="only one player can press that button"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1" />
+    <Button
+        android:text="Refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Refresh" />
+    <TextView
+        android:text="Checks"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Checks" />
 </LinearLayout>

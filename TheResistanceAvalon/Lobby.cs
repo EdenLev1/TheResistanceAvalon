@@ -21,15 +21,26 @@ namespace TheResistanceAvalon
             SetContentView(Resource.Layout.LobbyLayout);
             Button CreateGame = FindViewById<Button>(Resource.Id.Create);
             Button JoinGame = FindViewById<Button>(Resource.Id.Join);
+            TextView error = FindViewById<TextView>(Resource.Id.er);
             CreateGame.Click += (object sender, EventArgs e) =>
             {
-                Intent CreateGameIntent = new Intent(this, typeof(GameCreation));
-                StartActivity(CreateGameIntent);
+                comm c = new comm();
+                if (c.GET("Players", GlobalVariables.playername).active_game != "" || c.GET("Players", GlobalVariables.playername).active_game != null)
+                {
+                    CreateGame.Enabled = false;
+                    error.Text = "you are already a part of a game please join that one";
+                }
+                else
+                { 
+                    Intent CreateGameIntent = new Intent(this, typeof(GameCreation));
+                    StartActivity(CreateGameIntent);
+                }
             };
             JoinGame.Click += (object sender, EventArgs e) =>
             {
-              //  Intent Join = new Intent(this, typeof(GameCreation));
-               // StartActivity(Join);
+                    Intent Join = new Intent(this, typeof(JoinGame));
+                    StartActivity(Join);
+                
             };
 
         }

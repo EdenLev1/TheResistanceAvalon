@@ -12,7 +12,6 @@ namespace TheResistanceAvalon
     [Activity(Label = "AvalonApp", MainLauncher = false, Icon = "@drawable/Untitled")]
     public class GameCreation : Activity
     {
-        public string gamename = "";
         protected override void OnCreate(Bundle savedInstanceState)
         {
             SetContentView(Resource.Layout.CreateGame);
@@ -43,13 +42,15 @@ namespace TheResistanceAvalon
                     else
                     {
                         data.name = tn;
-                        gamename = tn;
+                        GlobalVariables.Gamename = tn;
                         data.status = "login";
-                        data.variant = new Variant { mordred = false, lady = false, morgana = false, percival = false, excalibur = false };
                         data.game_password = tp;
                         data.NumberOfPlayers = n;
                         data.players.Add(MainActivity.playername);
                         c.POST("Games", data);
+                        coll d2 = new coll();
+                        d2.active_game = tn;
+                        c.PATCH("Players", GlobalVariables.playername, d2);
                         Intent Lobbyintent = new Intent(this, typeof(Ceremony));
                         StartActivity(Lobbyintent);
                     }

@@ -15,7 +15,8 @@ namespace TheResistanceAvalon
     public static class GlobalVariables
     {
        public static string playername="";
-      public static string Gamename="";//איפה ההכנסה של הערך?
+      public static string Gamename="";
+        public static int Leader = 0;
       
     }
 }
