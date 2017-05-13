@@ -40,7 +40,8 @@ namespace TheResistanceAvalon
                     error.Text = errorM;
 
                 }
-
+                if (nickname.Contains(" ") || passW.Contains(" "))
+                    error.Text = "inputs can not include spcaes";
                 if ((c.GET("Players", nickname).password) != null && c.GET("Players", nickname).password != passW)
                     error.Text = "username already exists, please choose a different one or enter a correct password for that username";
                 if ((c.GET("Players", nickname).password) != null && c.GET("Players", nickname).password == passW)
@@ -49,7 +50,7 @@ namespace TheResistanceAvalon
                     Intent Lobbyintent = new Intent(this, typeof(Lobby));
                     StartActivity(Lobbyintent);
                 }
-                else
+                else if (!(nickname.Contains(" ") || passW.Contains(" ")))
                 {
                     GlobalVariables.playername = nickname;
                     coll data = new coll();

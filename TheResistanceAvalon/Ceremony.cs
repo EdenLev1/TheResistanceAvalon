@@ -15,11 +15,10 @@ namespace TheResistanceAvalon
     [Activity(Label = "Ceremony")]
     public class Ceremony : Activity
     {
-        public string ttt;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-             TextView check = FindViewById<TextView>(Resource.Id.Checks);
             SetContentView(Resource.Layout.GameCeremony);
             Button Play = FindViewById<Button>(Resource.Id.Move);
             Button Refresh = FindViewById<Button>(Resource.Id.Refresh);
@@ -49,7 +48,7 @@ namespace TheResistanceAvalon
                     coll data = new coll();
                     Status.Text = "begining ceremony, keep tight";
                     string[] infos = ManageCeremony();
-                    check.Text = ttt;
+
                     playerInfo = infos[c.GET("Games", gamename).number];
                     data.status = "gamestart";
                     status = "gamestart";
@@ -109,7 +108,7 @@ namespace TheResistanceAvalon
             };
         }
 
-        private string[] ManageCeremony()
+        public string[] ManageCeremony()
         {
             coll data = new coll();
             data.status = "ceremony";
@@ -120,8 +119,8 @@ namespace TheResistanceAvalon
             tekes Cer = new tekes(nop, makePlayerArray());// add players array 
             Cer.assign();// assign each player his role
             Player[] p = Cer.players;
-            coll d;
-            for (int i = 0; i < 1; i++)
+            coll d=new coll();
+            for (int i = 0; i < nop; i++)
             {
                 d = new coll();
                 d.role = p[i].GetKind();// assigns the player his role from the random role generator
@@ -129,19 +128,14 @@ namespace TheResistanceAvalon
                     d.is_leader = true;
                 if (p[i].GetKind() == "merlin")//merlin info problem
                     d.member = "good";
-                else if (p[i].GetKind() == "mordered"|| p[i].GetKind() == "assassin")//mordred info problem
+                else if (p[i].GetKind() == "mordred"|| p[i].GetKind() == "assassin")//mordred info problem
                     d.member = "evil";
                 else
                     d.member = p[i].GetKind();
                 d.number = i;
                 infos[i] = "you're: " + p[i].GetKind() + " " + p[i].getInfo(Cer);
                 d.location = infos[i];
-                string reply = c.PATCH("Players", p[i].playerName, d);
-                ttt += "\n" + d.ToString();
-                ttt = reply;
-   
-                System.Threading.Thread.Sleep(1000);
-                
+                string reply = c.PATCH("Players", p[i].playerName, d);  
             }
             return infos;
         }     

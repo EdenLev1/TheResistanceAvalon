@@ -60,7 +60,7 @@ namespace TheResistanceAvalon
         {
             if (kind == "merlin")
                 return cer.MerlinInfo();
-            else if (kind.ToLower() == "evil" || kind.ToLower() == "mordred" || kind.ToLower() == "assassin")
+            else if (kind.ToLower() == "evil" || kind.ToLower() == "assassin")
                 return cer.evilsInfo();
             else return "generic goods are clueless";
         }
