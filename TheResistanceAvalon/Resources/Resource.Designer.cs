@@ -63,11 +63,8 @@ namespace TheResistanceAvalon
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f05001c
-			public const int ApproveReject = 2131034140;
-			
-			// aapt resource value: 0x7f05001d
-			public const int Aprrove = 2131034141;
+			// aapt resource value: 0x7f05001a
+			public const int Approve = 2131034138;
 			
 			// aapt resource value: 0x7f050014
 			public const int Create = 2131034132;
@@ -81,8 +78,8 @@ namespace TheResistanceAvalon
 			// aapt resource value: 0x7f050012
 			public const int EnterG = 2131034130;
 			
-			// aapt resource value: 0x7f050020
-			public const int Fail = 2131034144;
+			// aapt resource value: 0x7f05001c
+			public const int Fail = 2131034140;
 			
 			// aapt resource value: 0x7f050015
 			public const int Join = 2131034133;
@@ -96,14 +93,11 @@ namespace TheResistanceAvalon
 			// aapt resource value: 0x7f05000f
 			public const int Refresh = 2131034127;
 			
-			// aapt resource value: 0x7f05001e
-			public const int Reject = 2131034142;
+			// aapt resource value: 0x7f05001d
+			public const int Reject = 2131034141;
 			
-			// aapt resource value: 0x7f05001f
-			public const int SuccessFail = 2131034143;
-			
-			// aapt resource value: 0x7f050021
-			public const int Sucess = 2131034145;
+			// aapt resource value: 0x7f05001b
+			public const int Succes = 2131034139;
 			
 			// aapt resource value: 0x7f050002
 			public const int TName = 2131034114;
@@ -117,18 +111,6 @@ namespace TheResistanceAvalon
 			// aapt resource value: 0x7f050005
 			public const int _password = 2131034117;
 			
-			// aapt resource value: 0x7f05001a
-			public const int absoluteLayout1 = 2131034138;
-			
-			// aapt resource value: 0x7f050022
-			public const int button1 = 2131034146;
-			
-			// aapt resource value: 0x7f050023
-			public const int button2 = 2131034147;
-			
-			// aapt resource value: 0x7f050024
-			public const int button3 = 2131034148;
-			
 			// aapt resource value: 0x7f05000e
 			public const int cere = 2131034126;
 			
@@ -141,23 +123,74 @@ namespace TheResistanceAvalon
 			// aapt resource value: 0x7f050008
 			public const int errors = 2131034120;
 			
+			// aapt resource value: 0x7f050030
+			public const int fdb = 2131034160;
+			
+			// aapt resource value: 0x7f050022
+			public const int feedback = 2131034146;
+			
 			// aapt resource value: 0x7f05000c
 			public const int info = 2131034124;
+			
+			// aapt resource value: 0x7f050020
+			public const int info2 = 2131034144;
 			
 			// aapt resource value: 0x7f050000
 			public const int linearLayout1 = 2131034112;
 			
+			// aapt resource value: 0x7f05001f
+			public const int missions = 2131034143;
+			
+			// aapt resource value: 0x7f050024
+			public const int msn = 2131034148;
+			
 			// aapt resource value: 0x7f050017
 			public const int nickname = 2131034135;
+			
+			// aapt resource value: 0x7f050025
+			public const int p1 = 2131034149;
+			
+			// aapt resource value: 0x7f05002e
+			public const int p10 = 2131034158;
+			
+			// aapt resource value: 0x7f050026
+			public const int p2 = 2131034150;
+			
+			// aapt resource value: 0x7f050027
+			public const int p3 = 2131034151;
+			
+			// aapt resource value: 0x7f050028
+			public const int p4 = 2131034152;
+			
+			// aapt resource value: 0x7f050029
+			public const int p5 = 2131034153;
+			
+			// aapt resource value: 0x7f05002a
+			public const int p6 = 2131034154;
+			
+			// aapt resource value: 0x7f05002b
+			public const int p7 = 2131034155;
+			
+			// aapt resource value: 0x7f05002c
+			public const int p8 = 2131034156;
+			
+			// aapt resource value: 0x7f05002d
+			public const int p9 = 2131034157;
 			
 			// aapt resource value: 0x7f050011
 			public const int pass = 2131034129;
 			
-			// aapt resource value: 0x7f05001b
-			public const int radioGroup1 = 2131034139;
+			// aapt resource value: 0x7f050021
+			public const int refresh2 = 2131034145;
+			
+			// aapt resource value: 0x7f05002f
+			public const int sd = 2131034159;
 			
 			// aapt resource value: 0x7f05000b
 			public const int status = 2131034123;
+			
+			// aapt resource value: 0x7f05001e
+			public const int submit = 2131034142;
 			
 			// aapt resource value: 0x7f050001
 			public const int textView1 = 2131034113;
@@ -174,8 +207,8 @@ namespace TheResistanceAvalon
 			// aapt resource value: 0x7f050007
 			public const int textView5 = 2131034119;
 			
-			// aapt resource value: 0x7f050025
-			public const int textView6 = 2131034149;
+			// aapt resource value: 0x7f050023
+			public const int textView6 = 2131034147;
 			
 			static Id()
 			{
@@ -212,7 +245,10 @@ namespace TheResistanceAvalon
 			public const int MissionInfo = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int TableWaiting = 2130903047;
+			public const int sPlayers = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int TableWaiting = 2130903048;
 			
 			static Layout()
 			{

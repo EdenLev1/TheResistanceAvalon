@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linearLayout1">
+    <TextView
+        android:text="Players taken on mission:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/msn" />
+    <TextView
+        android:text="Players available:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+    <CheckBox
+        android:text="p1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/p1"
+        android:allowUndo="true" />
+    <CheckBox
+        android:text="p2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/p2"
+        android:allowUndo="true" />
+    <CheckBox
+        android:text="p3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/p3"
+        android:allowUndo="true" />
+    <CheckBox
+        android:text="p4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/p4"
+        android:allowUndo="true" />
+    <CheckBox
+        android:text="p5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/p5"
+        android:allowUndo="true" />
+    <CheckBox
+        android:text="p6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/p6"
+        android:allowUndo="true" />
+    <CheckBox
+        android:text="p7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/p7"
+        android:allowUndo="true" />
+    <CheckBox
+        android:text="p8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/p8"
+        android:allowUndo="true" />
+    <CheckBox
+        android:text="p9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/p9"
+        android:allowUndo="false" />
+    <CheckBox
+        android:text="p10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/p10"
+        android:allowUndo="true" />
+    <Button
+        android:text="Submit decision"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sd" />
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fdb" />
+</LinearLayout>

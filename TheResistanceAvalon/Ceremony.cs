@@ -50,8 +50,10 @@ namespace TheResistanceAvalon
                     string[] infos = ManageCeremony();
 
                     playerInfo = infos[c.GET("Games", gamename).number];
-                    data.status = "gamestart";
-                    status = "gamestart";
+                    data.status = "game";
+                    status = "game";
+                    data.mission = 1;
+                  
                     c.PATCH("Games", gamename, data);
                     info.Text += " " + playerInfo;
                     Play.Enabled = true;
@@ -65,9 +67,13 @@ namespace TheResistanceAvalon
                 coll d2 = new coll();
                 coll d3 = new coll();
                 d3.is_leader = true;
-                d2.status="game";
                 d2.leader = c.GET("Games", gamename).players[0];
                 GlobalVariables.Leader = 0;
+                int x = c.GET("Games", gamename).vote;
+                if (x!=1 ||x!=2||x!=2||x!=3||x!=4||x!=5)
+                    d2.vote = 1;
+                int nop = c.GET("Games", GlobalVariables.Gamename).NumberOfPlayers;
+                d2.previous_leaders = new List<string>();
                 c.PATCH("Games", gamename, d2);
                 c.PATCH("Players", playrname, d3);
                 Intent Game = new Intent(this, typeof(Game));
@@ -99,6 +105,8 @@ namespace TheResistanceAvalon
                         info.Text += " " + playerInfo;
                         Play.Enabled = true;
                         data.status = "game";
+                        status = "game";
+                        data.mission = 1;
                         c.PATCH("Games", gamename, data);
                         BeginC.Enabled = false;
                         Refresh.Enabled = false;
@@ -136,6 +144,7 @@ namespace TheResistanceAvalon
                 infos[i] = "you're: " + p[i].GetKind() + " " + p[i].getInfo(Cer);
                 d.location = infos[i];
                 string reply = c.PATCH("Players", p[i].playerName, d);  
+                
             }
             return infos;
         }     
